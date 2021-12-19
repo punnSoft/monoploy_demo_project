@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: monopoly
+
+server:
+  context-path: /${spring.application.name}
+  port: 8080
+
+springdoc:
+  packagesToScan: de.punn.monopoly.port
+
