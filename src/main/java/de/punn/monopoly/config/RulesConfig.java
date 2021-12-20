@@ -1,6 +1,7 @@
 package de.punn.monopoly.config;
 
 import de.punn.monopoly.rules.GoSquareRule;
+import de.punn.monopoly.rules.GoToPrisonRule;
 import de.punn.monopoly.rules.IncomeTaxRule;
 import de.punn.monopoly.rules.LuxuryTaxRule;
 import org.jeasy.rules.api.Rules;
@@ -20,14 +21,18 @@ public class RulesConfig {
     @Autowired
     private LuxuryTaxRule luxuryTaxRule;
 
+    @Autowired
+    private GoToPrisonRule goToPrisonRule;
+
     @Bean
     public Rules rules() {
 
         Rules rules = new Rules();
-        rules.register(this.goSquareRule);
-        rules.register(this.incomeTaxRule);
-        rules.register(this.luxuryTaxRule);
-
+        rules.register(this.goSquareRule,
+                this.incomeTaxRule,
+                this.goToPrisonRule,
+                this.luxuryTaxRule
+        );
         return rules;
     }
 }
