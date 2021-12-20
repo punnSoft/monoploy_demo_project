@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Rule(name = "luxury tax rule", description = "If our position at square 38 we have to pay $75")
 public class LuxuryTaxRule {
 
-    private static final int LUXURY_TAX_SQUARE = 39;
+    private static final int LUXURY_TAX_SQUARE = 38;
     private static final BigDecimal TAX = BigDecimal.valueOf(75L);
 
     @Condition
