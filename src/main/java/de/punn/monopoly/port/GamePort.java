@@ -38,10 +38,7 @@ public class GamePort {
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<GameResult> startGame(@Parameter(schema =
-    @Schema(implementation = GameConfig.class)
-            , description = "Game configuration"
-            , example = "{ \"playerNames\" : [\"horse\", \"car\"], \"rounds\" : 20 }")
-                                                @RequestBody @NotNull @Valid GameConfig gameConfig) {
+    @Schema(implementation = GameConfig.class)) @RequestBody @NotNull @Valid GameConfig gameConfig) {
 
         log.info("Get a trigger for a new game!");
         try {
