@@ -46,6 +46,9 @@ public class GamePort {
             GameResult gameResult = this.gameManager.startGame(gameConfig);
             return new ResponseEntity<>(gameResult, HttpStatus.OK);
 
+        } catch (IllegalArgumentException illegalArgumentException) {
+            log.error("Some arguments are illegal!", illegalArgumentException);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } catch (Exception exception) {
             log.error("Something went wrong!", exception);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -15,7 +15,7 @@ public class GameManager {
 
     private final Game game;
 
-    public GameResult startGame (GameConfig gameConfig) {
+    public GameResult startGame (GameConfig gameConfig) throws IllegalArgumentException{
 
         List<Player> players = new ArrayList<>();
         gameConfig.getPlayerNames()
