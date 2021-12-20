@@ -15,9 +15,9 @@ import java.math.BigDecimal;
 @Rule(name = "Go to prison rule", description = "If our position at square 30, we have to move to square 10 and have to pay a fine of $50.")
 public class GoToPrisonRule {
 
+    public static final int IN_JAIL_SQUARE = 10;
     private static final int GO_TO_PRISON_SQUARE = 30;
     private static final BigDecimal FINE_VALUE = BigDecimal.valueOf(50L);
-    public static final int IN_JAIL_SQUARE = 10;
 
     @Condition
     public boolean isSquareRelevant(@Fact("player") Player player) {

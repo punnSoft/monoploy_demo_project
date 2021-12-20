@@ -17,8 +17,6 @@ import java.util.List;
 @Slf4j
 public class Game {
 
-    private static final int GO_SQUARE = 0;
-
     @Autowired
     private Rules rules;
 
@@ -55,7 +53,6 @@ public class Game {
 
     private void printResult(List<Player> players) {
 
-        log.info("-----------------");
         log.info("Result per round:");
         log.info("-----------------");
 
@@ -64,15 +61,18 @@ public class Game {
                         player.getName().name(),
                         player.getBalance(),
                         player.getSquarePosition()));
+        log.info("-----------------");
     }
 
     private void movePlayer(Player player) {
 
         var diceRoll = Dice.rollDice();
-        player.setSquarePosition((player.getSquarePosition() + diceRoll) % 39);
+        var oldPosition = player.getSquarePosition();
+        var newPosition = (oldPosition + diceRoll) % 39;
 
-        if (player.getSquarePosition() == 0 || (player.getSquarePosition() - diceRoll) <= GO_SQUARE) {
+        if (oldPosition > newPosition) {
             player.setPlayerPassedGo(Boolean.TRUE);
         }
+        player.setSquarePosition(newPosition);
     }
 }
