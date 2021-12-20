@@ -1,4 +1,4 @@
-package de.punn.monopoly.event.income;
+package de.punn.monopoly.event.incoming;
 
 import de.punn.monopoly.model.Player;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 package de.punn.monopoly.service;
 
-import de.punn.monopoly.event.income.GameConfig;
+import de.punn.monopoly.event.incoming.GameConfig;
 import de.punn.monopoly.event.outgoing.GameResult;
 import de.punn.monopoly.model.Player;
 import de.punn.monopoly.model.PlayerSpec;

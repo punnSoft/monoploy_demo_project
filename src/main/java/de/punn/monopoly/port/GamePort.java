@@ -1,6 +1,6 @@
 package de.punn.monopoly.port;
 
-import de.punn.monopoly.event.income.GameConfig;
+import de.punn.monopoly.event.incoming.GameConfig;
 import de.punn.monopoly.event.outgoing.GameResult;
 import de.punn.monopoly.service.GameManager;
 import io.swagger.v3.oas.annotations.Operation;

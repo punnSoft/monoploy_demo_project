@@ -1,7 +1,7 @@
 package de.punn.monopoly.port;
 
 import de.punn.monopoly.config.TestTags;
-import de.punn.monopoly.event.income.GameConfig;
+import de.punn.monopoly.event.incoming.GameConfig;
 import de.punn.monopoly.event.outgoing.GameResult;
 import de.punn.monopoly.model.Player;
 import org.junit.jupiter.api.BeforeEach;

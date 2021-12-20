@@ -1,4 +1,4 @@
-package de.punn.monopoly.event.income;
+package de.punn.monopoly.event.incoming;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
