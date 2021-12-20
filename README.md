@@ -5,18 +5,22 @@ Simple monopoly project with spring boot and jeasy as rule engine.
 
 Each player receives $1500 at the beginning of the game.
 
-The Go square is the first square on the board.
-The Income Tax square is the 5th square on the board.
-The Luxury Tax square is the 39th square on the board.
+- The Go square is the first square on the board.
+- The Income Tax square is the 5th square on the board.
+- The Luxury Tax square is the 39th square on the board. 
+- The GoToPrison square is the 31th square on the board.
+- The InJail square is the 11th square on the board.
 
 Consider: The player's balance can be negative. Players do not go bankrupt.
 
 ### Rules
-For this demo project I focused with the following rules on the Go, Luxury Tax, and Income Tax squares to the board:
+For this demo project I focused with the following rules on the Go, Luxury Tax, Income Tax and GoToPrison squares to the board:
 * When a player passes over or lands on the Go square, the player receives $200.
 * When a player lands on the Luxury Tax square, the player pays $75.
 * When a player lands on the Income Tax square, the player pays the minimum of $200
   or 10% of their worth
+* When a player lands on the GoToPrison square, the player moves to InJail square, pass the Go field, don't get $200, 
+  has to pay $50 and can move on with the next move.
 
 ### Players
 Please remember that the possible players only:

@@ -21,7 +21,6 @@ class IncomeTaxRuleTest {
     @Test
     void shouldRelevantBecauseSquarePositionIsIncomeTaxSquare() {
         Player testPlayer = PlayerSpec.valid()
-                .balance(BigDecimal.valueOf(200L))
                 .squarePosition(4)
                 .build();
 
@@ -31,7 +30,6 @@ class IncomeTaxRuleTest {
     @Test
     void shouldNotRelevantBecauseSquarePositionIsIsNotIncomeTaxSquare() {
         Player testPlayer = PlayerSpec.valid()
-                .balance(BigDecimal.valueOf(200L))
                 .squarePosition(24)
                 .build();
 

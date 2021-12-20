@@ -21,7 +21,6 @@ class LuxuryTaxRuleTest {
     @Test
     void shouldRelevantBecauseSquarePositionIsIsLuxuryTaxSquare (){
         Player testPlayer = PlayerSpec.valid()
-                .balance(BigDecimal.valueOf(200L))
                 .squarePosition(39)
                 .build();
 
@@ -31,7 +30,6 @@ class LuxuryTaxRuleTest {
     @Test
     void shouldNotRelevantBecauseSquarePositionIsIsNotLuxuryTaxSquare (){
         Player testPlayer = PlayerSpec.valid()
-                .balance(BigDecimal.valueOf(200L))
                 .squarePosition(9)
                 .build();
 

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 @Slf4j
 @Component
-@Rule(name = "Go square rule", description = "If our position at square 0 or we passed the square we have to get $1500")
+@Rule(name = "Go square rule", description = "If our position at square 0 or we passed the square we have to get $200")
 public class GoSquareRule {
 
     private static final BigDecimal MONEY_VALUE = BigDecimal.valueOf(200L);
