@@ -42,8 +42,10 @@ class GameTest {
 
         Player winner = this.game.playARoundMonopoly(players);
 
+        diceMockedStatic.verify(Dice::rollDice);
         assertThat(winner).isNotNull();
         assertThat(winner.getBalance()).isEqualByComparingTo(BigDecimal.ZERO);
         assertThat(winner.getSquarePosition()).isEqualTo(38);
+        diceMockedStatic.clearInvocations();
     }
 }
