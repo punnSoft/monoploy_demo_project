@@ -31,10 +31,10 @@ class GameTest {
     @Test
     void shouldPlayAroundMonopolyAndFireRuleLuxuryTax() {
         MockedStatic<Dice> diceMockedStatic = mockStatic(Dice.class);
-        diceMockedStatic.when(Dice::rollDice).thenReturn(1);
+        diceMockedStatic.when(Dice::rollDice).thenReturn(2);
 
         List<Player> players = List.of(PlayerSpec.valid()
-                .squarePosition(37)
+                .squarePosition(36)
                 .balance(BigDecimal.valueOf(75L))
                 .playerPassedGo(Boolean.FALSE)
                 .build()
