@@ -4,10 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 @Data
@@ -16,6 +13,7 @@ import java.math.BigDecimal;
 public class GameResult {
 
     @NotBlank(message = "Winner should not be blank!")
+    @Pattern(regexp = "dog|iron|battleship|cannon|magicHat|horse|shoe|car", message = "The name of the winner is not valid!")
     private String winner;
 
     @NotNull(message = "Balance should not be null!")

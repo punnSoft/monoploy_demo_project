@@ -54,6 +54,22 @@ class GameResultValidationTest {
     }
 
     @Test
+    void shouldNotBeValidBecauseWinnerHasNotAValidName () {
+
+        GameResult gameResult = GameResult.builder()
+                .balance(BigDecimal.TEN)
+                .playedRounds(10)
+                .winner("some-invalid-name")
+                .build();
+
+        Set<ConstraintViolation<GameResult>> violations = this.validator.validate(gameResult);
+
+        assertThat(violations.isEmpty()).isFalse();
+        assertThat(violations.size()).isEqualTo(1);
+        violations.forEach(validator -> assertThat(validator.getMessage()).isEqualTo("The name of the winner is not valid!"));
+    }
+
+    @Test
     void shouldNotBeValidBecauseBalanceIsNull () {
 
         GameResult gameResult = GameResult.builder()
