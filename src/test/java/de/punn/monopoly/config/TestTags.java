@@ -15,7 +15,10 @@ public class TestTags {
     @Target(ElementType.TYPE)
     @Retention(RetentionPolicy.RUNTIME)
     @Tag("integration")
-    public @interface IntegrationTest {
+    public @interface IntegrationTest { }
 
-    }
+    @Target(ElementType.TYPE)
+    @Retention(RetentionPolicy.RUNTIME)
+    @Tag("functional")
+    public @interface FunctionalTest { }
 }

@@ -1,8 +1,10 @@
 package de.punn.monopoly.event.outgoing;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
@@ -10,6 +12,8 @@ import java.math.BigDecimal;
 @Data
 @Builder
 @Schema(example = "{ \"winner\": \"car\", \"balance\": 7200, \"playedRounds\": 20 }")
+@NoArgsConstructor
+@AllArgsConstructor
 public class GameResult {
 
     @NotBlank(message = "Winner should not be blank!")
