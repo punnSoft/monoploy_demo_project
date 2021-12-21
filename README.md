@@ -1,5 +1,5 @@
 # monopoly demo project
-Simple monopoly project with spring boot and jeasy as rule engine.
+Simple simulation project of monopoly with spring boot and jeasy as rule engine.
 
 ## Game & Rules
 
@@ -12,6 +12,8 @@ Each player receives $1500 at the beginning of the game.
 - The InJail square is the 11th square on the board.
 
 Consider: The player's balance can be negative. Players do not go bankrupt.
+
+You can play 200 rounds with a maximum of 8 players. 
 
 ### Rules
 For this demo project I focused with the following rules on the Go, Luxury Tax, Income Tax and GoToPrison squares to the board:
