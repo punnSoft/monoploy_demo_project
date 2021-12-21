@@ -92,7 +92,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${surefire.version}</version>
 				<configuration>
-					<excludedGroups>integration</excludedGroups>
+					<excludedGroups>integration,functional</excludedGroups>
 					<includes>
 						<include>*</include>
 					</includes>
@@ -111,6 +111,21 @@
 						<version>${surefire.version}</version>
 						<configuration>
 							<groups>integration</groups>
+							<excludedGroups>none</excludedGroups>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>functional-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${surefire.version}</version>
+						<configuration>
+							<groups>functional</groups>
 							<excludedGroups>none</excludedGroups>
 						</configuration>
 					</plugin>
