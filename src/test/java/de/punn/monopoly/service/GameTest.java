@@ -1,47 +1,49 @@
 package de.punn.monopoly.service;
 
-import de.punn.monopoly.config.TestTags;
 import de.punn.monopoly.model.Player;
 import de.punn.monopoly.model.PlayerSpec;
+import de.punn.monopoly.rules.LuxuryTaxRule;
+import de.punn.monopoly.tool.Dice;
+import org.jeasy.rules.api.Rules;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.MockedStatic;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mockStatic;
 
-@SpringBootTest
-@TestTags.IntegrationTest
+@ExtendWith(MockitoExtension.class)
 class GameTest {
 
-    @Autowired
     private Game game;
 
+    @BeforeEach
+    void setUp() {
+        var rules = new Rules(new LuxuryTaxRule());
+        this.game = new Game(rules);
+    }
+
     @Test
-    void shouldStartGameOneRoundWith2Players() {
+    void shouldPlayAroundMonopolyAndFireRuleLuxuryTax() {
+        MockedStatic<Dice> diceMockedStatic = mockStatic(Dice.class);
+        diceMockedStatic.when(Dice::rollDice).thenReturn(1);
 
-        Player playerOne = PlayerSpec.valid()
-                .name(Player.PlayerName.horse)
-                .build();
+        List<Player> players = List.of(PlayerSpec.valid()
+                .squarePosition(37)
+                .balance(BigDecimal.valueOf(75L))
+                .playerPassedGo(Boolean.FALSE)
+                .build()
+        );
 
-        Player playerTwo = PlayerSpec.valid()
-                .name(Player.PlayerName.car)
-                .build();
-
-        List<Player> players = List.of(playerOne, playerTwo);
-
-        var winner = this.game.playARoundMonopoly(players);
-
-        players.forEach(player -> {
-            assertThat(player.getBalance()).isGreaterThan(BigDecimal.ZERO);
-            assertThat(player.isPlayerPassedGo()).isFalse();
-            assertThat(player.getSquarePosition()).isGreaterThan(1);
-            assertThat(player.getSquarePosition()).isLessThan(12);
-        });
+        Player winner = this.game.playARoundMonopoly(players);
 
         assertThat(winner).isNotNull();
-        assertThat(players.contains(winner)).isTrue();
+        assertThat(winner.getBalance()).isEqualByComparingTo(BigDecimal.ZERO);
+        assertThat(winner.getSquarePosition()).isEqualTo(38);
     }
 }

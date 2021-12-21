@@ -2,12 +2,12 @@ package de.punn.monopoly.service;
 
 import de.punn.monopoly.model.Player;
 import de.punn.monopoly.tool.Dice;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.api.RulesEngine;
 import org.jeasy.rules.core.DefaultRulesEngine;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -15,10 +15,10 @@ import java.util.List;
 
 @Service
 @Slf4j
+@AllArgsConstructor
 public class Game {
 
-    @Autowired
-    private Rules rules;
+    private final Rules rules;
 
     public Player playARoundMonopoly(List<Player> players) {
 
@@ -68,7 +68,7 @@ public class Game {
 
         var diceRoll = Dice.rollDice();
         var oldPosition = player.getSquarePosition();
-        var newPosition = (oldPosition + diceRoll) % 39;
+        var newPosition = (oldPosition + diceRoll) % 40;
 
         if (oldPosition > newPosition) {
             player.setPlayerPassedGo(Boolean.TRUE);
