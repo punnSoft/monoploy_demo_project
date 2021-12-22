@@ -28,7 +28,7 @@ class IncomeTaxRuleTest {
     }
 
     @Test
-    void shouldNotRelevantBecauseSquarePositionIsIsNotIncomeTaxSquare() {
+    void shouldNotRelevantBecauseSquarePositionIsNotIncomeTaxSquare() {
         Player testPlayer = PlayerSpec.valid()
                 .squarePosition(24)
                 .build();

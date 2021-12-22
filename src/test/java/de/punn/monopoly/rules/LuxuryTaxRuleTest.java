@@ -19,7 +19,7 @@ class LuxuryTaxRuleTest {
     }
 
     @Test
-    void shouldRelevantBecauseSquarePositionIsIsLuxuryTaxSquare (){
+    void shouldRelevantBecauseSquarePositionIsLuxuryTaxSquare (){
         Player testPlayer = PlayerSpec.valid()
                 .squarePosition(38)
                 .build();
@@ -28,7 +28,7 @@ class LuxuryTaxRuleTest {
     }
 
     @Test
-    void shouldNotRelevantBecauseSquarePositionIsIsNotLuxuryTaxSquare (){
+    void shouldNotRelevantBecauseSquarePositionIsNotLuxuryTaxSquare (){
         Player testPlayer = PlayerSpec.valid()
                 .squarePosition(9)
                 .build();
