@@ -4,8 +4,11 @@ package de.punn.monopoly.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @Data
@@ -34,5 +37,9 @@ public class Player {
     private int squarePosition = 0;
 
     @Builder.Default
-    boolean playerPassedGo = Boolean.TRUE;
+    private boolean playerPassedGo = Boolean.TRUE;
+
+    @Builder.Default
+    @Getter
+    private List<Property> propertyList = new ArrayList<>();
 }

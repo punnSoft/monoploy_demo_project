@@ -4,26 +4,17 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @NoArgsConstructor
 @Component
 public class WestTrainStation extends TrainStation {
 
-    private static final BigDecimal RENT = BigDecimal.valueOf(50L);
     private static final int POSITION = 15;
 
     private Player owner = null;
 
     @Override
-    public boolean isAvailable() {
-        return owner == null;
-    }
-
-    @Override
-    public BigDecimal getRent() {
-        return RENT;
-    }
+    public boolean isAvailable() { return owner == null; }
 
     @Override
     public int getSquarePosition() {

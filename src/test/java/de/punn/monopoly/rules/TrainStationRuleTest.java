@@ -52,6 +52,7 @@ class TrainStationRuleTest {
         this.trainStationRule.buyOrPayRentForTrainStation(testPlayer);
 
         assertThat(testPlayer.getBalance()).isEqualByComparingTo(BigDecimal.ZERO);
+        assertThat(testPlayer.getPropertyList().contains(this.westTrainStation)).isTrue();
         assertThat(this.westTrainStation.getOwner()).isEqualTo(testPlayer);
         assertThat(this.westTrainStation.isAvailable()).isFalse();
     }
@@ -67,7 +68,7 @@ class TrainStationRuleTest {
         this.westTrainStation.setOwner(trainStationOwner);
 
         Player testPlayer = PlayerSpec.valid()
-                .balance(BigDecimal.valueOf(50L))
+                .balance(BigDecimal.valueOf(25L))
                 .squarePosition(15)
                 .build();
 
@@ -76,6 +77,6 @@ class TrainStationRuleTest {
         assertThat(testPlayer.getBalance()).isEqualByComparingTo(BigDecimal.ZERO);
         assertThat(this.westTrainStation.getOwner()).isEqualTo(trainStationOwner);
         assertThat(this.westTrainStation.isAvailable()).isFalse();
-        assertThat(trainStationOwner.getBalance()).isEqualByComparingTo(BigDecimal.valueOf(50L));
+        assertThat(trainStationOwner.getBalance()).isEqualByComparingTo(BigDecimal.valueOf(25L));
     }
 }
