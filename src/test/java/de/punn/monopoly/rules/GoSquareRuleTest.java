@@ -20,9 +20,7 @@ class GoSquareRuleTest {
 
     @Test
     void shouldRelevantBecauseSquarePositionIsGoSquare() {
-        Player testPlayer = PlayerSpec.valid()
-                .balance(BigDecimal.valueOf(200L))
-                .build();
+        Player testPlayer = PlayerSpec.valid().build();
 
         assertThat(this.goSquareRule.isSquareRelevant(testPlayer)).isTrue();
     }
@@ -30,11 +28,20 @@ class GoSquareRuleTest {
     @Test
     void shouldRelevantBecausePassedSquarePosition() {
         Player testPlayer = PlayerSpec.valid()
-                .balance(BigDecimal.valueOf(200L))
-                .squarePosition(39)
+                .squarePosition(5)
                 .build();
 
         assertThat(this.goSquareRule.isSquareRelevant(testPlayer)).isTrue();
+    }
+
+    @Test
+    void shouldNotRelevantBecausePassedNotSquarePosition() {
+        Player testPlayer = PlayerSpec.valid()
+                .squarePosition(10)
+                .playerPassedGo(Boolean.FALSE)
+                .build();
+
+        assertThat(this.goSquareRule.isSquareRelevant(testPlayer)).isFalse();
     }
 
 
