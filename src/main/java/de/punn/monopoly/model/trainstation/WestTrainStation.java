@@ -1,5 +1,6 @@
-package de.punn.monopoly.model;
+package de.punn.monopoly.model.trainstation;
 
+import de.punn.monopoly.model.Player;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +13,6 @@ public class WestTrainStation extends TrainStation {
     private static final int POSITION = 15;
 
     private Player owner = null;
-
-    @Override
-    public boolean isAvailable() { return owner == null; }
 
     @Override
     public int getSquarePosition() {

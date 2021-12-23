@@ -1,8 +1,7 @@
 package de.punn.monopoly.rules;
 
 import de.punn.monopoly.model.Player;
-import de.punn.monopoly.model.TrainStation;
-import de.punn.monopoly.model.WestTrainStation;
+import de.punn.monopoly.model.trainstation.*;
 import lombok.extern.slf4j.Slf4j;
 import org.jeasy.rules.annotation.Action;
 import org.jeasy.rules.annotation.Condition;
@@ -10,7 +9,6 @@ import org.jeasy.rules.annotation.Fact;
 import org.jeasy.rules.annotation.Rule;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Slf4j
@@ -20,11 +18,23 @@ public class TrainStationRule {
 
     private final WestTrainStation westTrainStation;
 
+    private final EastTrainStation eastTrainStation;
+
+    private final SouthTrainStation southTrainStation;
+
+    private final NorthTrainStation northTrainStation;
+
     private final List<TrainStation> trainStations;
 
-    public TrainStationRule(WestTrainStation westTrainStation) {
+    public TrainStationRule(WestTrainStation westTrainStation, EastTrainStation eastTrainStation,
+                            SouthTrainStation southTrainStation, NorthTrainStation northTrainStation) {
         this.westTrainStation = westTrainStation;
-        this.trainStations = List.of(this.westTrainStation);
+        this.eastTrainStation = eastTrainStation;
+        this.southTrainStation = southTrainStation;
+        this.northTrainStation = northTrainStation;
+
+        this.trainStations = List.of(this.westTrainStation, this.eastTrainStation, this.southTrainStation,
+                this.northTrainStation);
     }
 
 
@@ -57,19 +67,10 @@ public class TrainStationRule {
 
         } else if (trainStation.getOwner() != player) {
 
-            Player trainStationOwner = trainStation.getOwner();
-
-            // We have to found out if the owner has more than one train station
-            // that is important for the calculation of the rent
-            // 1 train station -> $25
-            // 2 train station -> $50 and so on...
-            var multiplier = trainStationOwner.getPropertyList().stream()
-                    .filter(TrainStation.class::isInstance)
-                    .count();
-
-            var rentToPay = trainStation.getRent().multiply(BigDecimal.valueOf(multiplier));
+            var rentToPay = trainStation.getRentByPossession();
             player.setBalance(player.getBalance().subtract(rentToPay));
 
+            var trainStationOwner = trainStation.getOwner();
             trainStationOwner.setBalance(trainStationOwner.getBalance().add(rentToPay));
             log.info("train station rule has fired! Player {} paid the rent of {} to train station owner {}. Player {}'s balance is {} now.",
                     player.getName(), rentToPay, trainStationOwner.getName(), player.getName(), player.getBalance());
