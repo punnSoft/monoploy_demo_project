@@ -1,9 +1,6 @@
 package de.punn.monopoly.config;
 
-import de.punn.monopoly.rules.GoSquareRule;
-import de.punn.monopoly.rules.GoToPrisonRule;
-import de.punn.monopoly.rules.IncomeTaxRule;
-import de.punn.monopoly.rules.LuxuryTaxRule;
+import de.punn.monopoly.rules.*;
 import org.jeasy.rules.api.Rules;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +21,9 @@ public class RulesConfig {
     @Autowired
     private GoToPrisonRule goToPrisonRule;
 
+    @Autowired
+    private TrainStationRule trainStationRule;
+
     @Bean
     public Rules rules() {
 
@@ -31,7 +31,8 @@ public class RulesConfig {
         rules.register(this.goSquareRule,
                 this.incomeTaxRule,
                 this.goToPrisonRule,
-                this.luxuryTaxRule
+                this.luxuryTaxRule,
+                this.trainStationRule
         );
         return rules;
     }
