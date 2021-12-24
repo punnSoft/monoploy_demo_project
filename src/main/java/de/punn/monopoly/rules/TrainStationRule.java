@@ -1,7 +1,7 @@
 package de.punn.monopoly.rules;
 
 import de.punn.monopoly.model.Player;
-import de.punn.monopoly.model.trainstation.*;
+import de.punn.monopoly.model.trainstation.TrainStation;
 import lombok.extern.slf4j.Slf4j;
 import org.jeasy.rules.annotation.Action;
 import org.jeasy.rules.annotation.Condition;
@@ -16,25 +16,10 @@ import java.util.List;
 @Rule(name = "train station rule", description = "If our position at a train station square we can buy it or we have to pay a rent.")
 public class TrainStationRule {
 
-    private final WestTrainStation westTrainStation;
-
-    private final EastTrainStation eastTrainStation;
-
-    private final SouthTrainStation southTrainStation;
-
-    private final NorthTrainStation northTrainStation;
-
     private final List<TrainStation> trainStations;
 
-    public TrainStationRule(WestTrainStation westTrainStation, EastTrainStation eastTrainStation,
-                            SouthTrainStation southTrainStation, NorthTrainStation northTrainStation) {
-        this.westTrainStation = westTrainStation;
-        this.eastTrainStation = eastTrainStation;
-        this.southTrainStation = southTrainStation;
-        this.northTrainStation = northTrainStation;
-
-        this.trainStations = List.of(this.westTrainStation, this.eastTrainStation, this.southTrainStation,
-                this.northTrainStation);
+    public TrainStationRule(TrainStation... trainStation) {
+        this.trainStations = List.of(trainStation);
     }
 
 
