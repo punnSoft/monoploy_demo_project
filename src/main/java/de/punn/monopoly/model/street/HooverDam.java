@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 
 @NoArgsConstructor
 @Component
-public class TheStrip extends Street{
+public class HooverDam extends Street{
 
-    private static final int POSITION = 39;
-    private static final BigDecimal PURCHASE_PRICE = BigDecimal.valueOf(400L);
+    private static final int POSITION = 37;
+    private static final BigDecimal PURCHASE_PRICE = BigDecimal.valueOf(350L);
     private static final BigDecimal RENT = BigDecimal.valueOf(25L);
 
     private Player owner;
@@ -34,7 +34,7 @@ public class TheStrip extends Street{
 
     @Override
     public String getName() {
-        return TheStrip.class.getSimpleName();
+        return HooverDam.class.getSimpleName();
     }
 
     @Override

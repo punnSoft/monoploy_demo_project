@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 
 public interface Property {
 
+    enum PropertyColor {
+        NONE,BLUE,ORANGE,YELLOW,PINK,GREEN,RED,PURPLE,GRAY
+    }
+
     BigDecimal getPurchasePrice();
 
     boolean isAvailable();
@@ -17,4 +21,6 @@ public interface Property {
     Player getOwner();
 
     void setOwner(Player player);
+
+    PropertyColor getPropertyColor();
 }
