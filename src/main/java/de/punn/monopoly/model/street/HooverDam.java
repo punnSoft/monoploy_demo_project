@@ -13,7 +13,7 @@ public class HooverDam extends Street{
 
     private static final int POSITION = 37;
     private static final BigDecimal PURCHASE_PRICE = BigDecimal.valueOf(350L);
-    private static final BigDecimal RENT = BigDecimal.valueOf(25L);
+    private static final BigDecimal RENT = BigDecimal.valueOf(80L);
 
     private Player owner;
 

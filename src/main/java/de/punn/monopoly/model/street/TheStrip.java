@@ -13,7 +13,7 @@ public class TheStrip extends Street{
 
     private static final int POSITION = 39;
     private static final BigDecimal PURCHASE_PRICE = BigDecimal.valueOf(400L);
-    private static final BigDecimal RENT = BigDecimal.valueOf(25L);
+    private static final BigDecimal RENT = BigDecimal.valueOf(100L);
 
     private Player owner;
 
