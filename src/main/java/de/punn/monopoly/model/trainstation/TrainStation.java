@@ -16,10 +16,6 @@ public abstract class TrainStation implements Property {
     }
 
     public BigDecimal getRent() {
-        return RENT;
-    }
-
-    public BigDecimal getRentByPossession() {
 
         Long numberOfPossession = this.getOwner().getPropertyList().stream()
                 .filter(TrainStation.class::isInstance)
@@ -27,7 +23,7 @@ public abstract class TrainStation implements Property {
 
         switch (numberOfPossession.intValue()){
             case 1:
-                return getRent();
+                return RENT;
             case 2:
                 return BigDecimal.valueOf(50L);
             case 3:

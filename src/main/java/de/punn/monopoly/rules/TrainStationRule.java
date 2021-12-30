@@ -52,7 +52,7 @@ public class TrainStationRule {
 
         } else if (trainStation.getOwner() != player) {
 
-            var rentToPay = trainStation.getRentByPossession();
+            var rentToPay = trainStation.getRent();
             player.setBalance(player.getBalance().subtract(rentToPay));
 
             var trainStationOwner = trainStation.getOwner();
