@@ -24,6 +24,9 @@ public class RulesConfig {
     @Autowired
     private TrainStationRule trainStationRule;
 
+    @Autowired
+    private StreetRule streetRule;
+
     @Bean
     public Rules rules() {
 
@@ -32,7 +35,8 @@ public class RulesConfig {
                 this.incomeTaxRule,
                 this.goToPrisonRule,
                 this.luxuryTaxRule,
-                this.trainStationRule
+                this.trainStationRule,
+                this.streetRule
         );
         return rules;
     }
