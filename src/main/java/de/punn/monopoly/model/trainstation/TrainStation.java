@@ -38,4 +38,6 @@ public abstract class TrainStation implements Property {
     }
 
     public boolean isAvailable() { return this.getOwner() == null; }
+
+    public PropertyColor getPropertyColor() { return PropertyColor.NONE; }
 }
