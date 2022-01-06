@@ -14,7 +14,7 @@ class HooverDamTest extends StreetTest{
         this.expectedPropertyColor = Property.PropertyColor.BLUE;
         this.expectedPurchasePrice = BigDecimal.valueOf(350L);
         this.expectedSquarePosition = 37;
-        this.expectedRent = BigDecimal.valueOf(80L);
+        this.expectedRent = BigDecimal.valueOf(70L);
     }
 
 }
