@@ -11,7 +11,7 @@ Each player receives $1500 at the beginning of the game.
 - The GoToPrison square is the 31th square on the board.
 - The InJail square is the 11th square on the board.
 - The TrainStations are the 6th, the 16th, the 26th and the 36th squares on the board.
-- The available streets are the 12th, the 13th, the 15th, the 40th and the 38th squares on the board ("Goodsprings", "Primm", "Freeside", "The Strip" & "Hoover dam").
+- The available streets are the 12th, the 13th, the 15th, the 27th, the 28th, the 30th, the 40th and the 38th squares on the board ("Goodsprings", "Primm", "Freeside", "Hidden Valley", "Jacobs's Town", "Gun Runners", "The Strip" & "Hoover dam").
 
 Consider: The player's balance can be negative. Players do not go bankrupt.
 
@@ -43,6 +43,10 @@ For this demo project I focused with the following rules on the Go, Luxury Tax, 
 | Freeside          | $160  | $12  | 15     | street        |
 | Primm             | $140  | $10  | 13     | street        |
 | Goodsprings       | $140  | $10  | 12     | street        |
+| Gun Runners       | $280  | $24  | 30     | street        |
+| Jacobs's Town     | $260  | $22  | 28     | street        |
+| Hidden Valley     | $260  | $22  | 27     | street        |
+
 
 The street names are based on fan made monopoly board "New Vegas".
 
