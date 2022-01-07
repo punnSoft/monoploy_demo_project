@@ -15,7 +15,9 @@ Each player receives $1500 at the beginning of the game.
 
 Consider: The player's balance can be negative. Players do not go bankrupt.
 
-You can play 200 rounds with a maximum of 8 players. 
+You can play 200 rounds with a maximum of 8 players.
+
+Winner is the player with the highest balance at the end.
 
 ### Rules
 For this demo project I focused with the following rules on the Go, Luxury Tax, Income Tax, GoToPrison, TrainStations, "The Strip" and "Hoover dam" squares to the board:
