@@ -11,7 +11,8 @@ public abstract class Street implements Property {
 
     private static final Map<PropertyColor, Integer> propertyColorAndCountMap =
             Map.of(PropertyColor.BLUE, 2,
-                    PropertyColor.PINK, 3);
+                    PropertyColor.PINK, 3,
+                    PropertyColor.YELLOW, 3);
 
     protected BigDecimal rent = BigDecimal.ZERO;
     protected Player owner;
